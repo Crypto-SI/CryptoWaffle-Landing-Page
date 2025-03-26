@@ -50,7 +50,7 @@ const Navigation = () => {
         <Link href="/" className="flex items-center">
           <div className="relative h-10 w-24 mr-2">
             <Image 
-              src="/images/crypto waffle logo.webp" 
+              src="/images/crypto-waffle-logo.png" 
               alt="Crypto Waffle Logo" 
               fill
               style={{ objectFit: 'contain' }}
@@ -132,7 +132,7 @@ const Navigation = () => {
             <div className="flex justify-center items-center mb-4">
               <div className="relative h-10 w-24 mr-2">
                 <Image 
-                  src="/images/crypto waffle logo.webp" 
+                  src="/images/crypto-waffle-logo.png" 
                   alt="Crypto Waffle Logo" 
                   fill
                   style={{ objectFit: 'contain' }}

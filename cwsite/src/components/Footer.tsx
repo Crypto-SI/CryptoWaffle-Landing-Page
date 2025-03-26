@@ -46,7 +46,7 @@ const Footer = () => {
               <FaYoutube size={24} />
             </a>
             <a 
-              href="https://t.me/+UDa-Hzf6xcNmMTk0" 
+              href="https://t.me/+AVoimeTI8Ew5ZGQ0" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-teal hover:text-yellow transition-colors"
@@ -64,7 +64,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-2">
               <a 
-                href="https://t.me/+UDa-Hzf6xcNmMTk0" 
+                href="https://t.me/+AVoimeTI8Ew5ZGQ0" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-mid-grey hover:text-teal transition-colors text-sm"

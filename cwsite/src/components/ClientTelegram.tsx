@@ -140,7 +140,7 @@ const ClientTelegram = () => {
               <div className="text-center">
                 <span className="block text-yellow text-lg font-bold mb-6">FREE</span>
                 <a 
-                  href="https://t.me/+UDa-Hzf6xcNmMTk0" 
+                  href="https://t.me/+AVoimeTI8Ew5ZGQ0" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-block bg-dark-grey border border-teal text-teal font-bold py-3 px-8 rounded-md hover:bg-teal hover:text-almost-black transition-colors"
@@ -231,7 +231,7 @@ const ClientTelegram = () => {
               <div className="text-center">
                 <span className="block text-yellow text-lg font-bold mb-6">$20 / month</span>
                 <a 
-                  href="https://t.me/+UDa-Hzf6xcNmMTk0" 
+                  href="https://t.me/+AVoimeTI8Ew5ZGQ0" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-block bg-teal text-almost-black font-bold py-3 px-8 rounded-md hover:bg-yellow transition-colors"
@@ -325,7 +325,7 @@ const ClientTelegram = () => {
             navigate the crypto markets with confidence.
           </p>
           <a 
-            href="https://t.me/+UDa-Hzf6xcNmMTk0" 
+            href="https://t.me/+AVoimeTI8Ew5ZGQ0" 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-yellow hover:bg-teal text-almost-black font-bold py-4 px-10 rounded-md transition-colors inline-flex items-center text-lg"
