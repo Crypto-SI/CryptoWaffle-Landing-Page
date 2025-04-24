@@ -127,7 +127,7 @@ const ClientHero = () => {
             </div>
             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-yellow">
               <Image
-                src="/images/Financial navigator.jpg"
+                src="/images/fnwaffle.png"
                 alt="Financial Navigator"
                 fill
                 className="object-cover"
@@ -164,7 +164,7 @@ const ClientHero = () => {
         >
           <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-yellow">
             <Image
-              src="/images/Financial navigator.jpg"
+              src="/images/fnwaffle.png"
               alt="Financial Navigator"
               fill
               className="object-cover"

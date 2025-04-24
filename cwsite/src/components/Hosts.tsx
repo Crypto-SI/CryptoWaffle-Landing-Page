@@ -7,9 +7,9 @@ const Hosts = () => {
   const hosts = [
     {
       name: 'Financial Navigator',
-      role: 'Macro & Chart Analysis Expert',
-      bio: 'Breaking down economic trends and market indicators to help you navigate the financial landscape.',
-      image: '/images/Financial navigator.jpg',
+      role: 'Guiding your financial journey',
+      bio: 'Expert advice on investments, savings, and planning for a secure future.',
+      image: '/images/fnwaffle.png',
       instagram: 'https://www.instagram.com/financial_navigator_',
       twitter: 'https://twitter.com/Alex_Codling_'
     },

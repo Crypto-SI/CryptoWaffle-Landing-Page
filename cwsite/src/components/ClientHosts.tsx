@@ -23,7 +23,7 @@ const hosts = [
     realName: "Alex Waffle",
     role: "Co-Host & Finance Analyst",
     bio: "An expert in macroeconomics and chart analysis, providing deep insights into market trends and indicators.",
-    imageUrl: "/images/Financial navigator.jpg",
+    imageUrl: "/images/fnwaffle.png",
     instagramUrl: "https://www.instagram.com/financial_navigator_",
     twitterUrl: "https://twitter.com/Alex_Codling_",
     specialties: ["Macroeconomics", "Chart Analysis", "Market Indicators"]

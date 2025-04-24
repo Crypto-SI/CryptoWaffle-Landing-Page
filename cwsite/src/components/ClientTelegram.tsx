@@ -231,7 +231,7 @@ const ClientTelegram = () => {
               <div className="text-center">
                 <span className="block text-yellow text-lg font-bold mb-6">$20 / month</span>
                 <a 
-                  href="https://t.me/+AVoimeTI8Ew5ZGQ0" 
+                  href="https://t.me/CryptoWaffleVIP_Bot?start=subscribe" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-block bg-teal text-almost-black font-bold py-3 px-8 rounded-md hover:bg-yellow transition-colors"

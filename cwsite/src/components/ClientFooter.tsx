@@ -100,29 +100,16 @@ const ClientFooter = () => {
             <p className="text-light-grey mb-4">
               Get notified when we go live or release new content
             </p>
-            {/* Only render the form on the client side to prevent hydration errors */}
+            {/* Only render the button on the client side to prevent hydration errors */}
             {isClient ? (
-              <form className="space-y-2">
-                <div>
-                  <input 
-                    type="email" 
-                    placeholder="Your email address" 
-                    className="bg-almost-black text-light-grey border border-mid-grey p-3 rounded-md w-full focus:outline-none focus:border-teal"
-                    required
-                  />
-                </div>
-                <button 
-                  type="submit"
-                  className="bg-teal text-almost-black font-medium py-3 px-6 rounded-md w-full hover:bg-opacity-90 transition-all"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <button 
+                type="button"
+                className="bg-teal text-almost-black font-medium py-3 px-6 rounded-md w-full hover:bg-opacity-90 transition-all"
+              >
+                Subscribe to Newsletter
+              </button>
             ) : (
-              <div className="space-y-2">
-                <div className="h-12 bg-almost-black border border-mid-grey rounded-md w-full"></div>
-                <div className="h-12 bg-teal rounded-md w-full"></div>
-              </div>
+              <div className="h-12 bg-teal rounded-md w-full"></div>
             )}
           </motion.div>
         </div>

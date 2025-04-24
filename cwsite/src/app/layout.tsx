@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import MailchimpPopup from '../components/MailchimpPopup';
 
 export const metadata: Metadata = {
   title: 'Crypto Waffle - Where Finance Meets Crypto',
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <MailchimpPopup />
       </body>
     </html>
   );

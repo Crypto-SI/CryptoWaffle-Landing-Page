@@ -220,7 +220,7 @@ const ClientAdvertise = () => {
             Let's discuss how we can create a partnership that delivers results for your business.
           </p>
           <a 
-            href="mailto:cryptosi@protonmail.com" 
+            href="mailto:info@cryptowaffle.fun" 
             className="bg-teal hover:bg-teal-600 text-almost-black font-bold py-3 px-8 rounded-md transition-colors inline-flex items-center"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
