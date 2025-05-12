@@ -157,13 +157,13 @@ const ClientTelegram = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-dark-grey rounded-lg overflow-hidden relative"
+            className="bg-dark-grey rounded-lg relative"
           >
             {/* Premium Badge */}
-            <div className="absolute -top-3 -right-3 bg-yellow text-almost-black text-xs font-bold py-1 px-3 rounded-full shadow-lg transform rotate-3">
+            <div className="absolute -top-5 right-2 bg-yellow text-almost-black text-xs font-bold py-1 px-3 rounded-full shadow-lg transform rotate-3 z-10">
               RECOMMENDED
             </div>
-            <div className="bg-gradient-to-r from-teal to-teal-700 p-2 text-center">
+            <div className="bg-gradient-to-r from-teal to-teal-700 p-2 text-center overflow-hidden">
               <span className="text-almost-black font-bold">PREMIUM ACCESS</span>
             </div>
             <div className="p-8">

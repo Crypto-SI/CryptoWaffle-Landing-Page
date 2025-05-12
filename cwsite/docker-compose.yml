@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3030:3000"
+      - "80:80"
     restart: unless-stopped
-    container_name: cryptowaffle_site 
+    container_name: cryptowaffle_site
+    env_file:
+      - .env 
