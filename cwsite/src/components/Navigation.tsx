@@ -80,22 +80,25 @@ const Navigation = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link href="#about" className="text-light-grey hover:text-teal transition-colors">
+          <Link href="/#about" className="text-light-grey hover:text-teal transition-colors">
             About
           </Link>
-          <Link href="#hosts" className="text-light-grey hover:text-teal transition-colors">
+          <Link href="/#hosts" className="text-light-grey hover:text-teal transition-colors">
             Hosts
           </Link>
-          <Link href="#episodes" className="text-light-grey hover:text-teal transition-colors">
+          <Link href="/#episodes" className="text-light-grey hover:text-teal transition-colors">
             Episodes
           </Link>
           <Link 
-            href="#telegram" 
+            href="/#telegram" 
             className="text-light-grey hover:text-teal transition-colors"
           >
             Community
           </Link>
-          <Link href="#advertise" className="text-light-grey hover:text-teal transition-colors">
+          <Link href="/partners" className="text-light-grey hover:text-teal transition-colors">
+            Partners
+          </Link>
+          <Link href="/#advertise" className="text-light-grey hover:text-teal transition-colors">
             Advertise
           </Link>
           <a 
@@ -152,35 +155,35 @@ const Navigation = () => {
               </div>
             </div>
             <Link 
-              href="#about" 
+              href="/#about" 
               className="text-light-grey hover:text-teal transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link 
-              href="#hosts" 
+              href="/#hosts" 
               className="text-light-grey hover:text-teal transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Hosts
             </Link>
             <Link 
-              href="#episodes" 
+              href="/#episodes" 
               className="text-light-grey hover:text-teal transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Episodes
             </Link>
             <Link 
-              href="#telegram" 
+              href="/#telegram" 
               className="text-light-grey hover:text-teal transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Community
             </Link>
             <Link 
-              href="#advertise" 
+              href="/#advertise" 
               className="text-light-grey hover:text-teal transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
