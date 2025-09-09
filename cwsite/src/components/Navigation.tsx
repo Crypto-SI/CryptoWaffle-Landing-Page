@@ -31,7 +31,7 @@ const Navigation = () => {
         duration: 0.3,
         repeat: Infinity,
         repeatType: "reverse" as const,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };
@@ -98,8 +98,19 @@ const Navigation = () => {
           <Link href="/partners" className="text-light-grey hover:text-teal transition-colors">
             Partners
           </Link>
+          <a
+            href="https://news.cryptowaffle.fun"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-light-grey hover:text-teal transition-colors"
+          >
+            News
+          </a>
           <Link href="/#advertise" className="text-light-grey hover:text-teal transition-colors">
             Advertise
+          </Link>
+          <Link href="/#news" className="text-light-grey hover:text-teal transition-colors">
+            News
           </Link>
           <a 
             href="https://www.instagram.com/financial_navigator_"
@@ -182,12 +193,19 @@ const Navigation = () => {
             >
               Community
             </Link>
-            <Link 
-              href="/#advertise" 
+            <Link
+              href="/#advertise"
               className="text-light-grey hover:text-teal transition-colors py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Advertise
+            </Link>
+            <Link
+              href="/#news"
+              className="text-light-grey hover:text-teal transition-colors py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              News
             </Link>
             <a 
               href="https://www.instagram.com/financial_navigator_"
