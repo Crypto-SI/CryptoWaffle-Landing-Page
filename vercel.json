@@ -1,1 +1,11 @@
-{"version": 2, "root": "cwsite"}
+{
+  "version": 2,
+  "outputDirectory": "out",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+} 
