@@ -18,10 +18,13 @@ const ClientYouTubePlaylist = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [shouldLoadEmbed, setShouldLoadEmbed] = useState(false);
+  const [playerVisible, setPlayerVisible] = useState(false);
   const videosPerPage = 4;
   
   const playlistId = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ID || 'PLmFN-F-XHywZZLYh95RFY0utC2TeYRZMm';
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+  const playerContainerRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   
   // Fallback demo videos in case API doesn't work
@@ -68,7 +71,12 @@ const ClientYouTubePlaylist = () => {
         
         const data = await response.json();
         
-        const videos = data.items.map((item: any, index: number) => ({
+        const items = Array.isArray(data?.items) ? data.items : [];
+        if (!items.length) {
+          throw new Error('Playlist empty');
+        }
+
+        const videos = items.map((item: any, index: number) => ({
           id: `video-${index}`,
           videoId: item.snippet.resourceId.videoId,
           title: item.snippet.title,
@@ -79,7 +87,7 @@ const ClientYouTubePlaylist = () => {
         setError(null);
       } catch (err) {
         console.error('Error fetching playlist:', err);
-        setError('Failed to load videos. Using demo videos instead.');
+        setError('Failed to load videos. Showing demo episodes instead.');
         setPlaylistVideos(demoVideos);
       } finally {
         setIsLoading(false);
@@ -89,8 +97,29 @@ const ClientYouTubePlaylist = () => {
     fetchPlaylistVideos();
   }, [apiKey, playlistId]);
 
+  useEffect(() => {
+    if (shouldLoadEmbed) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShouldLoadEmbed(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '200px' }
+    );
+    if (playerContainerRef.current) {
+      observer.observe(playerContainerRef.current);
+    }
+    return () => observer.disconnect();
+  }, [shouldLoadEmbed]);
+
   // Function to play a specific video when thumbnail is clicked
   const playVideo = (videoId: string, index: number) => {
+    setShouldLoadEmbed(true);
+    setPlayerVisible(true);
     setCurrentVideoId(videoId);
     setCurrentVideoIndex(index);
     
@@ -131,6 +160,7 @@ const ClientYouTubePlaylist = () => {
     currentPage * videosPerPage,
     (currentPage + 1) * videosPerPage
   );
+  const featuredVideo = playlistVideos[0];
 
   const [isPastEpisodesHovered, setIsPastEpisodesHovered] = useState(false);
   const [isSubscribeHovered, setIsSubscribeHovered] = useState(false);
@@ -210,8 +240,59 @@ const ClientYouTubePlaylist = () => {
           </div>
         )}
 
+        {/* Featured Latest Episode */}
+        {!isLoading && featuredVideo && !isFullscreen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mb-10 bg-dark-grey rounded-xl overflow-hidden shadow-2xl border border-almost-black"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-3">
+              <div className="relative aspect-video lg:aspect-auto lg:h-full">
+                <img
+                  src={featuredVideo.thumbnailUrl}
+                  alt={featuredVideo.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="lg:col-span-2 p-6 flex flex-col gap-4">
+                <div className="text-sm text-mid-grey uppercase tracking-wide">Latest Episode</div>
+                <h3 className="text-2xl font-bold text-yellow leading-tight">{featuredVideo.title}</h3>
+                <div className="flex flex-wrap gap-4 text-sm text-mid-grey">
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-almost-black">
+                    🎥 On-demand
+                  </span>
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-almost-black">
+                    🔔 Stay updated
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    onClick={() => {
+                      playVideo(featuredVideo.videoId, 0);
+                    }}
+                    className="bg-teal text-almost-black font-bold py-3 px-5 rounded-md hover:bg-opacity-90 transition-all inline-flex items-center gap-2"
+                  >
+                    ▶️ Play Latest
+                  </button>
+                  <a
+                    href={`https://www.youtube.com/watch?v=${featuredVideo.videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-dark-grey border border-teal text-teal font-bold py-3 px-5 rounded-md hover:bg-teal hover:text-almost-black transition-all inline-flex items-center gap-2"
+                  >
+                    Open on YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
         {/* YouTube Player Section with Navigation Arrows */}
-        {!isLoading && playlistVideos.length > 0 && (
+        {!isLoading && playlistVideos.length > 0 && playerVisible && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -232,6 +313,8 @@ const ClientYouTubePlaylist = () => {
                     onClick={() => {
                       setCurrentVideoId(null);
                       setCurrentVideoIndex(0);
+                      setPlayerVisible(false);
+                      setIsFullscreen(false);
                       if (iframeRef.current) {
                         iframeRef.current.src = `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=0&rel=0&modestbranding=1`;
                       }
@@ -275,18 +358,34 @@ const ClientYouTubePlaylist = () => {
               )}
 
               {/* Responsive YouTube Embed */}
-              <div className={`relative overflow-hidden rounded-lg shadow-2xl ${isFullscreen ? 'h-full' : 'aspect-video'}`}>
-                <iframe
-                  ref={iframeRef}
-                  src={currentVideoId 
-                    ? `https://www.youtube.com/embed/${currentVideoId}?autoplay=1&rel=0&modestbranding=1` 
-                    : `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=0&rel=0&modestbranding=1`
-                  }
-                  title="Crypto Waffle YouTube Playlist"
-                  className="absolute top-0 left-0 w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
+              <div
+                ref={playerContainerRef}
+                className={`relative overflow-hidden rounded-lg shadow-2xl ${isFullscreen ? 'h-full' : 'aspect-video'}`}
+              >
+                {shouldLoadEmbed ? (
+                  <iframe
+                    ref={iframeRef}
+                    src={currentVideoId 
+                      ? `https://www.youtube.com/embed/${currentVideoId}?autoplay=1&rel=0&modestbranding=1` 
+                      : `https://www.youtube.com/embed/videoseries?list=${playlistId}&autoplay=0&rel=0&modestbranding=1`
+                    }
+                    title="Crypto Waffle YouTube Playlist"
+                    className="absolute top-0 left-0 w-full h-full border-0"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setShouldLoadEmbed(true)}
+                    className="absolute inset-0 w-full h-full bg-gradient-to-br from-almost-black via-dark-grey to-almost-black text-light-grey flex flex-col items-center justify-center gap-3 hover:text-yellow transition-colors"
+                  >
+                    <span className="text-lg font-semibold">Click to load the YouTube playlist</span>
+                    <span className="text-sm text-mid-grey">Lazy-loaded to keep the page fast</span>
+                  </button>
+                )}
               </div>
 
               {/* Right Navigation Arrow */}
@@ -328,7 +427,7 @@ const ClientYouTubePlaylist = () => {
         )}
 
         {/* Initial Video Selection (when no video is playing) */}
-        {!isLoading && !currentVideoId && !isFullscreen && playlistVideos.length > 0 && (
+        {!isLoading && !currentVideoId && !isFullscreen && playlistVideos.length > 0 && !playerVisible && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

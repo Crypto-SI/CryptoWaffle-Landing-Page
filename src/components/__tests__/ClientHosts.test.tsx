@@ -24,7 +24,7 @@ describe('ClientHosts Component', () => {
     expect(screen.getByRole('heading', { name: /CryptoSI/i })).toBeInTheDocument();
     expect(screen.getByText(/Host & Crypto Expert/i)).toBeInTheDocument();
     expect(screen.getByText(/A crypto OG with vast technical knowledge/i)).toBeInTheDocument(); // Check partial bio
-    expect(screen.getByAltText(/CryptoSI/i)).toHaveAttribute('src', '/images/Cryptosi.jpg');
+    expect(screen.getByAltText(/CryptoSI/i)).toHaveAttribute('src', '/images/Cryptosi.webp');
     expect(screen.getByText(/DAOs/i)).toBeInTheDocument();
     expect(screen.getByText(/Blockchain tech/i)).toBeInTheDocument();
     expect(screen.getByText(/tokenomics/i)).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('ClientHosts Component', () => {
     expect(screen.getByRole('heading', { name: /Financial Navigator/i })).toBeInTheDocument();
     expect(screen.getByText(/Co-Host & Finance Analyst/i)).toBeInTheDocument();
     expect(screen.getByText(/An expert in macroeconomics and chart analysis/i)).toBeInTheDocument(); // Check partial bio
-    expect(screen.getByAltText(/Financial Navigator/i)).toHaveAttribute('src', '/images/fnwaffle.png');
+    expect(screen.getByAltText(/Financial Navigator/i)).toHaveAttribute('src', '/images/fnwaffle.webp');
     expect(screen.getByText(/Macroeconomics/i)).toBeInTheDocument();
     expect(screen.getByText(/Chart Analysis/i)).toBeInTheDocument();
     expect(screen.getByText(/Market Indicators/i)).toBeInTheDocument();

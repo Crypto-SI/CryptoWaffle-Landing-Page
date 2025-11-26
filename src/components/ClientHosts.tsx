@@ -12,7 +12,7 @@ const hosts = [
     realName: "Carl Si",
     role: "Host & Crypto Expert",
     bio: "A crypto OG with vast technical knowledge and a trove of experiences in the industry, sharing valuable stories and practical advice.",
-    imageUrl: "/images/Cryptosi.jpg",
+    imageUrl: "/images/Cryptosi.webp",
     instagramUrl: "https://www.instagram.com/cryptosi.eth",
     twitterUrl: "https://twitter.com/crypto_si",
     specialties: ["DAOs", "Blockchain tech", "tokenomics"]
@@ -23,7 +23,7 @@ const hosts = [
     realName: "Alex Waffle",
     role: "Co-Host & Finance Analyst",
     bio: "An expert in macroeconomics and chart analysis, providing deep insights into market trends and indicators.",
-    imageUrl: "/images/fnwaffle.png",
+    imageUrl: "/images/fnwaffle.webp",
     instagramUrl: "https://www.instagram.com/financial_navigator_",
     twitterUrl: "https://twitter.com/Alex_Codling_",
     specialties: ["Macroeconomics", "Chart Analysis", "Market Indicators"]

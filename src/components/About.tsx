@@ -74,9 +74,10 @@ const About = () => {
           >
             <div className="relative w-full max-w-md aspect-video rounded-lg overflow-hidden shadow-xl">
               <Image 
-                src="/images/Crypto Waffle Template(2).png"
+                src="/images/Crypto Waffle Template(2).webp"
                 alt="Crypto Waffle Show"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>

@@ -41,6 +41,72 @@ const ClientAdvertise = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="bg-almost-black border border-dark-grey rounded-2xl p-8 md:p-10 shadow-2xl mb-16"
+        >
+          <div 
+            className="inline-block"
+            onMouseEnter={() => setIsH2Hovered(true)}
+            onMouseLeave={() => setIsH2Hovered(false)}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex text-yellow">
+              {"Book Us".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  custom={index}
+                  variants={letterVariants}
+                  animate={isH2Hovered ? "hover" : "initial"}
+                  style={{ display: 'inline-block' }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </motion.span>
+              ))}
+            </h2>
+          </div>
+          <p className="text-lg md:text-xl text-light-grey max-w-4xl mx-auto mb-8">
+            We’re open to collaborations: book Crypto Waffle as guests on your show, or join us as a guest on ours.
+            If you run a podcast, livestream, Twitter Space, or conference panel, let’s team up and bring actionable
+            crypto + market insight to your audience.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-dark-grey rounded-xl p-6 border border-almost-black">
+              <h3 className="text-teal text-xl font-bold mb-2">Invite Us</h3>
+              <p className="text-light-grey mb-4">
+                Book Financial Navigator & CryptoSI to guest on your show, panel, or AMA.
+                Expect sharp market takes, on-chain insight, and real-world crypto experience.
+              </p>
+              <ul className="space-y-2 text-sm text-mid-grey">
+                <li>• Podcasts, livestreams, Twitter/X Spaces, conference panels</li>
+                <li>• Market/DeFi/Narrative breakdowns tailored to your audience</li>
+                <li>• No fluff—actionable and transparent</li>
+              </ul>
+            </div>
+            <div className="bg-dark-grey rounded-xl p-6 border border-almost-black">
+              <h3 className="text-teal text-xl font-bold mb-2">Be Our Guest</h3>
+              <p className="text-light-grey mb-4">
+                Join Crypto Waffle as a guest to share your story, product, or research with a tuned-in crypto crowd.
+              </p>
+              <ul className="space-y-2 text-sm text-mid-grey">
+                <li>• Founders, researchers, analysts, traders welcome</li>
+                <li>• Spotlight segments + Q&A</li>
+                <li>• Audience of engaged crypto enthusiasts</li>
+              </ul>
+            </div>
+          </div>
+          <div className="text-center mt-8">
+            <a
+              href="mailto:cryptosi@protonmail.com?subject=Book%20Crypto%20Waffle"
+              className="inline-block bg-teal text-almost-black font-bold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300"
+            >
+              Book a Slot
+            </a>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="text-center mb-12"
         >
           <div 

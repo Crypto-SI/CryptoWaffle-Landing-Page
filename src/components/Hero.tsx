@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8 py-16">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8 py-16 hero-fold">
       <div className="absolute top-0 left-0 w-full h-full bg-almost-black opacity-90 z-0"></div>
       
       <motion.div 
@@ -15,10 +15,12 @@ const Hero = () => {
       >
         <div className="flex justify-center mb-8">
           <Image 
-            src="/images/crypto waffle logo.webp"
+            src="/images/crypto-waffle-logo.webp"
             alt="Crypto Waffle Logo"
             width={300}
             height={100}
+            priority
+            sizes="(max-width: 768px) 70vw, 300px"
             className="h-auto"
           />
         </div>

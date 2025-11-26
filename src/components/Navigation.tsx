@@ -50,12 +50,13 @@ const Navigation = () => {
         <Link href="/" className="flex items-center">
           <div className="relative h-10 w-24 mr-2">
             <Image 
-              src="/images/crypto-waffle-logo.png" 
+              src="/images/crypto-waffle-logo.webp" 
               alt="Crypto Waffle Logo" 
               fill
               style={{ objectFit: 'contain' }}
               className="brightness-110"
               priority
+              sizes="96px"
             />
           </div>
           <div 
@@ -109,9 +110,6 @@ const Navigation = () => {
           <Link href="/#advertise" className="text-light-grey hover:text-teal transition-colors">
             Advertise
           </Link>
-          <Link href="/#news" className="text-light-grey hover:text-teal transition-colors">
-            News
-          </Link>
           <a 
             href="https://www.instagram.com/financial_navigator_"
             target="_blank"
@@ -146,11 +144,12 @@ const Navigation = () => {
             <div className="flex justify-center items-center mb-4">
               <div className="relative h-10 w-24 mr-2">
                 <Image 
-                  src="/images/crypto-waffle-logo.png" 
+                  src="/images/crypto-waffle-logo.webp" 
                   alt="Crypto Waffle Logo" 
                   fill
                   style={{ objectFit: 'contain' }}
                   className="brightness-110"
+                  sizes="96px"
                 />
               </div>
               <div className="flex">

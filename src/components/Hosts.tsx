@@ -9,7 +9,7 @@ const Hosts = () => {
       name: 'Financial Navigator',
       role: 'Guiding your financial journey',
       bio: 'Expert advice on investments, savings, and planning for a secure future.',
-      image: '/images/fnwaffle.png',
+      image: '/images/fnwaffle.webp',
       instagram: 'https://www.instagram.com/financial_navigator_',
       twitter: 'https://twitter.com/Alex_Codling_'
     },
@@ -17,7 +17,7 @@ const Hosts = () => {
       name: 'CryptoSI',
       role: 'Crypto OG & Technical Expert',
       bio: 'A crypto OG with deep technical knowledge, sharing real-world experiences and insider tips from years in the industry.',
-      image: '/images/CryptoSI3w.jpg',
+      image: '/images/CryptoSI3w.webp',
       instagram: 'https://www.instagram.com/cryptosi.eth',
       twitter: 'https://twitter.com/crypto_si'
     }
@@ -51,12 +51,13 @@ const Hosts = () => {
               className="bg-almost-black rounded-lg overflow-hidden shadow-lg"
             >
               <div className="relative h-80 w-full">
-                <Image
-                  src={host.image}
-                  alt={host.name}
-                  fill
-                  className="object-cover object-center"
-                />
+              <Image
+                src={host.image}
+                alt={host.name}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-yellow mb-1">{host.name}</h3>

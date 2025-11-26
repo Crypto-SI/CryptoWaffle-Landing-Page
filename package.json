@@ -21,6 +21,12 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "browserslist": [
+    "Chrome >= 110",
+    "Safari >= 15",
+    "Firefox >= 110",
+    "Edge >= 110"
+  ],
   "dependencies": {
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",

@@ -47,7 +47,7 @@ const ClientHero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8 py-16">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 md:px-8 py-16 hero-fold">
       <div className="absolute top-0 left-0 w-full h-full bg-almost-black opacity-90 z-0"></div>
       
       <motion.div 
@@ -65,9 +65,10 @@ const ClientHero = () => {
         >
           <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-yellow">
             <Image
-              src="/images/Cryptosi.jpg"
+              src="/images/Cryptosi.webp"
               alt="CryptoSI"
               fill
+              sizes="128px"
               className="object-cover"
             />
           </div>
@@ -119,17 +120,19 @@ const ClientHero = () => {
           <div className="flex justify-between mb-8 md:hidden">
             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-yellow">
               <Image
-                src="/images/Cryptosi.jpg"
+                src="/images/Cryptosi.webp"
                 alt="CryptoSI"
                 fill
+                sizes="80px"
                 className="object-cover"
               />
             </div>
             <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-yellow">
               <Image
-                src="/images/fnwaffle.png"
+                src="/images/fnwaffle.webp"
                 alt="Financial Navigator"
                 fill
+                sizes="80px"
                 className="object-cover"
               />
             </div>
@@ -164,9 +167,10 @@ const ClientHero = () => {
         >
           <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-yellow">
             <Image
-              src="/images/fnwaffle.png"
+              src="/images/fnwaffle.webp"
               alt="Financial Navigator"
               fill
+              sizes="128px"
               className="object-cover"
             />
           </div>

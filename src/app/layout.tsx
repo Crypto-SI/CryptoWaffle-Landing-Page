@@ -34,6 +34,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload brand font stylesheet to reduce render-blocking */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Minimal critical styles for above-the-fold hero to avoid flash of unstyled content */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              body { margin: 0; background: #2A2B2D; color: #CDD6DF; font-family: 'Fredoka', sans-serif; }
+              .hero-fold { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 4rem 1rem; }
+              .hero-fold h1, .hero-fold h2, .hero-fold h3 { margin: 0; }
+            `,
+          }}
+        />
+      </head>
       <body>
         {children}
         <MailchimpPopup />

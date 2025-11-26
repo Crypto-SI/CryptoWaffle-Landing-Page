@@ -9,10 +9,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="mb-6 md:mb-0">
             <Image 
-              src="/images/crypto waffle logo.webp"
+              src="/images/crypto-waffle-logo.webp"
               alt="Crypto Waffle Logo"
               width={180}
               height={60}
+              sizes="180px"
               className="h-auto"
             />
           </div>

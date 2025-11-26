@@ -16,7 +16,7 @@ describe('Navigation Component', () => {
     render(<Navigation />);
     const logo = screen.getByRole('img', { name: /Crypto Waffle Logo/i });
     expect(logo).toBeInTheDocument();
-    expect(logo).toHaveAttribute('src', '/images/crypto-waffle-logo.png');
+    expect(logo).toHaveAttribute('src', '/images/crypto-waffle-logo.webp');
   });
 
   test('renders the main navigation links', () => {

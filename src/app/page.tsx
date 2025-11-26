@@ -4,7 +4,6 @@ import ClientHosts from '../components/ClientHosts';
 import ClientYouTubePlaylist from '../components/ClientYouTubePlaylist';
 import ClientTelegram from '../components/ClientTelegram';
 import ClientAdvertise from '../components/ClientAdvertise';
-import ClientNews from '../components/ClientNews';
 import Navigation from '../components/Navigation';
 import ClientFooter from '../components/ClientFooter';
 
@@ -19,7 +18,6 @@ export default function Home() {
         <ClientYouTubePlaylist />
         <ClientTelegram />
         <ClientAdvertise />
-        <ClientNews />
       </main>
       <ClientFooter />
     </>
