@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import MailchimpPopup from '../components/MailchimpPopup';
+import { headers } from 'next/headers';
 
 export const metadata: Metadata = {
   title: 'Crypto Waffle - Where Finance Meets Crypto',
@@ -32,6 +33,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const headerList = headers();
+  const nonce = (typeof headerList?.get === 'function' ? headerList.get('x-nonce') : undefined) || undefined;
+
   return (
     <html lang="en">
       <head>
@@ -44,6 +48,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Minimal critical styles for above-the-fold hero to avoid flash of unstyled content */}
         <style
+          nonce={nonce}
           dangerouslySetInnerHTML={{
             __html: `
               body { margin: 0; background: #2A2B2D; color: #CDD6DF; font-family: 'Fredoka', sans-serif; }
