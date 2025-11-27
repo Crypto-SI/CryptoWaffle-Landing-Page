@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  turbopack: {
-    root: '/Users/cryptosi/Desktop/Vibe Coding/CryptoWaffle-Landing-Page',
-  },
+  distDir: '.next',
   typescript: {
     ignoreBuildErrors: true,
   },
