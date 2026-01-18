@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headerList = headers();
-  const nonce = (typeof headerList?.get === 'function' ? headerList.get('x-nonce') : undefined) || undefined;
+  const headerList = await headers();
+  const nonce = headerList?.get('x-nonce') || undefined;
 
   return (
     <html lang="en">
