@@ -46,6 +46,18 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
         />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L55D4RZ4DJ" nonce={nonce} />
+        <script
+          nonce={nonce}
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-L55D4RZ4DJ');
+            `,
+          }}
+        />
         {/* Minimal critical styles for above-the-fold hero to avoid flash of unstyled content */}
         <style
           nonce={nonce}
