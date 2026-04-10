@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { instagramFallbackPosts } from '../../../../data/socialFallbacks';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -92,12 +93,14 @@ export async function GET(request: Request) {
       })
     );
 
-    return NextResponse.json({ posts });
+    const validPosts = posts.filter((post) => Boolean(post.imageUrl));
+    if (!validPosts.length) {
+      return NextResponse.json({ posts: instagramFallbackPosts.slice(0, count), fallback: true });
+    }
+
+    return NextResponse.json({ posts: validPosts });
   } catch (error) {
     console.error('Instagram social feed error:', error);
-    return NextResponse.json(
-      { posts: [], error: 'Unable to load Instagram posts.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ posts: instagramFallbackPosts.slice(0, count), fallback: true });
   }
 }
