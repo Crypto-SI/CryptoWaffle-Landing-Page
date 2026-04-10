@@ -9,12 +9,12 @@ export function middleware(request: NextRequest) {
 
   const csp = [
     "default-src 'self'",
-    "script-src 'self' 'nonce-" + nonce + "' https://chimpstatic.com https://www.youtube.com https://www.gstatic.com",
-    "style-src 'self' 'nonce-" + nonce + "' https://fonts.googleapis.com 'unsafe-inline'",
-    "img-src 'self' data: https://i.ytimg.com",
+    "script-src 'self' 'nonce-" + nonce + "' https://chimpstatic.com https://www.youtube.com https://www.gstatic.com https://www.tiktok.com https://*.tiktok.com",
+    "style-src 'self' https://fonts.googleapis.com 'unsafe-inline'",
+    "img-src 'self' data: https://i.ytimg.com https://*.tiktok.com https://*.tiktokcdn.com",
     "font-src 'self' https://fonts.gstatic.com",
-    "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
-    "connect-src 'self' https://www.googleapis.com https://chimpstatic.com",
+    "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.tiktok.com https://*.tiktok.com",
+    "connect-src 'self' https://www.googleapis.com https://chimpstatic.com https://www.tiktok.com https://*.tiktok.com",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
