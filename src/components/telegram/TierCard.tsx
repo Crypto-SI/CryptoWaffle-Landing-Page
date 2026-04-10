@@ -55,7 +55,7 @@ export const TierCard = ({
     <div className={bannerClassName}>
       <span className={bannerTextClassName}>{heading.toUpperCase()}</span>
     </div>
-    <div className="p-8">
+    <div className="p-6 sm:p-8">
       <AnimatedHeading
         as="h3"
         text={heading}
@@ -87,7 +87,7 @@ export const TierCard = ({
           href={ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className={ctaClassName}
+          className={`${ctaClassName} w-full sm:w-auto`}
         >
           {ctaText}
         </a>

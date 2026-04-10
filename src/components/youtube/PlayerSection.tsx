@@ -6,7 +6,7 @@ import { VideoItem } from './types';
 
 type PlayerSectionProps = {
   playlistVideos: VideoItem[];
-  playlistId: string;
+  playlistId?: string | null;
   currentVideoId: string | null;
   currentVideoIndex: number;
   isFullscreen: boolean;
@@ -45,15 +45,15 @@ export const PlayerSection = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className={`relative ${isFullscreen ? 'fixed inset-0 z-50 bg-almost-black p-4' : ''}`}
+      className={`relative ${isFullscreen ? 'fixed inset-0 z-50 bg-almost-black p-3 sm:p-4' : ''}`}
     >
-      <div className="flex justify-between items-center mb-4">
-        <div className="text-yellow font-medium md:text-lg">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="pr-0 text-sm font-medium text-yellow sm:pr-4 md:text-lg">
           {currentVideoId && currentVideoIndex >= 0 && currentVideoIndex < playlistVideos.length
             ? 'Now Playing: ' + playlistVideos[currentVideoIndex].title
             : 'Crypto Waffle Episodes'}
         </div>
-        <div className="flex space-x-2">
+        <div className="flex flex-wrap gap-2 sm:justify-end">
           {currentVideoId && (
             <button
               onClick={onBackToPlaylist}
@@ -92,7 +92,7 @@ export const PlayerSection = ({
         {currentVideoId && !isFullscreen && playlistVideos.length > 1 && (
           <button
             onClick={onPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 bg-dark-grey bg-opacity-70 hover:bg-teal text-light-grey hover:text-almost-black h-12 w-12 rounded-full flex items-center justify-center transition-all"
+            className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-dark-grey/80 text-light-grey transition-all hover:bg-teal hover:text-almost-black md:left-0 md:h-12 md:w-12 md:-translate-x-12"
             aria-label="Previous Video"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,7 +131,7 @@ export const PlayerSection = ({
         {currentVideoId && !isFullscreen && playlistVideos.length > 1 && (
           <button
             onClick={onNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 bg-dark-grey bg-opacity-70 hover:bg-teal text-light-grey hover:text-almost-black h-12 w-12 rounded-full flex items-center justify-center transition-all"
+            className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-dark-grey/80 text-light-grey transition-all hover:bg-teal hover:text-almost-black md:right-0 md:h-12 md:w-12 md:translate-x-12"
             aria-label="Next Video"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -143,7 +143,7 @@ export const PlayerSection = ({
 
       {currentVideoId && !isFullscreen && (
         <div className="mt-4 text-center">
-          <p className="text-light-grey">
+          <p className="text-sm leading-relaxed text-light-grey sm:text-base">
             Episode {currentVideoIndex + 1} of {playlistVideos.length}:{' '}
             <span className="text-teal">{playlistVideos[currentVideoIndex].title}</span>
           </p>

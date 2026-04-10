@@ -30,9 +30,9 @@ export const EpisodeSelection = ({
     viewport={{ once: true }}
     className="mt-12"
   >
-    <div className="flex justify-between items-center mb-6">
+    <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
       <h3 className="text-2xl font-bold text-teal">Select an Episode</h3>
-      <div className="text-light-grey">
+      <div className="text-sm text-light-grey sm:text-base">
         Page {currentPage + 1} of {Math.ceil(playlistVideos.length / VIDEOS_PER_PAGE)}
       </div>
     </div>
@@ -40,10 +40,10 @@ export const EpisodeSelection = ({
 
     <div className="relative">
       {playlistVideos.length > VIDEOS_PER_PAGE && (
-        <>
+        <div className="mb-4 flex items-center justify-end gap-3 md:mb-0">
           <button
             onClick={onPreviousPage}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 z-10 bg-dark-grey bg-opacity-70 hover:bg-teal text-light-grey hover:text-almost-black h-10 w-10 rounded-full flex items-center justify-center transition-all"
+            className="z-10 flex h-10 w-10 items-center justify-center rounded-full bg-dark-grey/80 text-light-grey transition-all hover:bg-teal hover:text-almost-black md:absolute md:left-0 md:top-1/2 md:-translate-x-8 md:-translate-y-1/2"
             aria-label="Previous Page"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,17 +53,17 @@ export const EpisodeSelection = ({
 
           <button
             onClick={onNextPage}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 z-10 bg-dark-grey bg-opacity-70 hover:bg-teal text-light-grey hover:text-almost-black h-10 w-10 rounded-full flex items-center justify-center transition-all"
+            className="z-10 flex h-10 w-10 items-center justify-center rounded-full bg-dark-grey/80 text-light-grey transition-all hover:bg-teal hover:text-almost-black md:absolute md:right-0 md:top-1/2 md:translate-x-8 md:-translate-y-1/2"
             aria-label="Next Page"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
-        </>
+        </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+      <div className="grid grid-cols-1 gap-6 px-0 sm:grid-cols-2 sm:px-4 lg:grid-cols-4">
         {currentVideos.map((video, index) => (
           <motion.div
             key={video.id}

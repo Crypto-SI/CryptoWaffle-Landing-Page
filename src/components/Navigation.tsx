@@ -31,13 +31,13 @@ const Navigation = () => {
         isScrolled ? 'bg-almost-black bg-opacity-95 py-2 shadow-lg' : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
+      <div className="container mx-auto flex items-center justify-between gap-4 px-4">
+        <Link href="/" className="flex min-w-0 items-center">
           <Logo
             isAnimated
             isHovered={isHovered}
             onHoverChange={setIsHovered}
-            textClassName="text-teal font-bold text-lg md:text-xl"
+            textClassName="text-teal font-bold text-base sm:text-lg md:text-xl"
           />
         </Link>
 
@@ -46,7 +46,7 @@ const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-light-grey"
+          className="shrink-0 text-light-grey lg:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (

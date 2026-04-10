@@ -21,7 +21,7 @@ export const ScheduleCard = ({ isHovered, onHoverChange }: ScheduleCardProps) =>
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
-    className="p-8 bg-dark-grey rounded-lg shadow-xl"
+    className="rounded-lg bg-dark-grey p-6 shadow-xl sm:p-8"
   >
     <AnimatedHeading
       as="h3"
@@ -32,7 +32,7 @@ export const ScheduleCard = ({ isHovered, onHoverChange }: ScheduleCardProps) =>
     />
     <div className="space-y-4">
       {scheduleItems.map((item) => (
-        <div key={item.label} className="flex items-center">
+        <div key={item.label} className="flex items-start sm:items-center">
           <span className="text-yellow text-xl mr-3">{item.icon}</span>
           <div>
             <span className="font-medium text-teal">{item.label}:</span> {item.value}

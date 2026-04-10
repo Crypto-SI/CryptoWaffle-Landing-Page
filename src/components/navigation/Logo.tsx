@@ -27,8 +27,8 @@ export const Logo = ({ isAnimated, isHovered = false, onHoverChange, textClassNa
   const letters = SITE_NAME.split('');
 
   return (
-    <div className="flex items-center">
-      <div className="relative h-10 w-24 mr-2">
+    <div className="flex min-w-0 items-center gap-2">
+      <div className="relative h-9 w-20 shrink-0 sm:h-10 sm:w-24">
         <Image
           src="/images/crypto-waffle-logo.webp"
           alt="Crypto Waffle Logo"
@@ -40,7 +40,7 @@ export const Logo = ({ isAnimated, isHovered = false, onHoverChange, textClassNa
         />
       </div>
       <div
-        className="flex"
+        className="flex min-w-0"
         onMouseEnter={onHoverChange ? () => onHoverChange(true) : undefined}
         onMouseLeave={onHoverChange ? () => onHoverChange(false) : undefined}
       >

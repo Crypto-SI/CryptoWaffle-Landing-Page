@@ -40,7 +40,7 @@ const ClientFooter = () => {
                 </svg>
               </a>
               <a 
-                href="https://www.youtube.com/playlist?list=PLmFN-F-XHywZZLYh95RFY0utC2TeYRZMm" 
+                href="https://www.youtube.com/@CryptoWaffleTV" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-light-grey hover:text-teal transition-colors"
@@ -84,7 +84,12 @@ const ClientFooter = () => {
               </li>
               <li>
                 <Link href="#episodes" className="text-light-grey hover:text-teal transition-colors">
-                  Past Episodes
+                  Latest Episodes
+                </Link>
+              </li>
+              <li>
+                <Link href="/archive" className="text-light-grey hover:text-teal transition-colors">
+                  Archive
                 </Link>
               </li>
             </ul>

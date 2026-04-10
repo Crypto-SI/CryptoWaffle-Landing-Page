@@ -9,8 +9,8 @@ type MobileMenuProps = {
 };
 
 export const MobileMenu = ({ onClose }: MobileMenuProps) => (
-  <div className="md:hidden bg-dark-grey bg-opacity-95 py-4">
-    <div className="container mx-auto px-4 flex flex-col space-y-4">
+  <div className="border-t border-white/10 bg-dark-grey/95 py-4 shadow-2xl backdrop-blur lg:hidden">
+    <div className="container mx-auto flex flex-col space-y-4 px-4">
       <div className="flex justify-center items-center mb-4">
         <Logo isAnimated={false} textClassName="text-teal font-bold text-xl" />
       </div>

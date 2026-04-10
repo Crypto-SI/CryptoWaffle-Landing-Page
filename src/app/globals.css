@@ -17,6 +17,7 @@ body {
   font-family: 'Fredoka', sans-serif;
   background-color: var(--almost-black);
   color: var(--light-grey);
+  overflow-x: hidden;
 }
 
 @layer components {

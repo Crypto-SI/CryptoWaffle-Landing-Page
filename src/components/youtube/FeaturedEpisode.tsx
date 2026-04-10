@@ -31,10 +31,10 @@ export const FeaturedEpisode = ({ video, onPlay }: FeaturedEpisodeProps) => (
             🔔 Stay updated
           </span>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <button
             onClick={() => onPlay(video.videoId)}
-            className="bg-teal text-almost-black font-bold py-3 px-5 rounded-md hover:bg-opacity-90 transition-all inline-flex items-center gap-2"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-teal px-5 py-3 font-bold text-almost-black transition-all hover:bg-opacity-90 sm:w-auto"
           >
             ▶️ Play Latest
           </button>
@@ -42,7 +42,7 @@ export const FeaturedEpisode = ({ video, onPlay }: FeaturedEpisodeProps) => (
             href={`https://www.youtube.com/watch?v=${video.videoId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-dark-grey border border-teal text-teal font-bold py-3 px-5 rounded-md hover:bg-teal hover:text-almost-black transition-all inline-flex items-center gap-2"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-teal bg-dark-grey px-5 py-3 font-bold text-teal transition-all hover:bg-teal hover:text-almost-black sm:w-auto"
           >
             Open on YouTube
           </a>
