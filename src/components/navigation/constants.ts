@@ -5,6 +5,7 @@ export const DESKTOP_NAV_ITEMS = [
   { label: 'Hosts', href: '/#hosts' },
   { label: 'Episodes', href: '/#episodes' },
   { label: 'Archive', href: '/archive' },
+  { label: 'Vault', href: '/vault' },
   { label: 'Community', href: '/#telegram' },
   { label: 'Partners', href: '/partners' },
   { label: 'News', href: 'https://news.cryptowaffle.fun', external: true },
@@ -16,9 +17,11 @@ export const MOBILE_NAV_ITEMS = [
   { label: 'Hosts', href: '/#hosts' },
   { label: 'Episodes', href: '/#episodes' },
   { label: 'Archive', href: '/archive' },
+  { label: 'Vault', href: '/vault' },
   { label: 'Community', href: '/#telegram' },
+  { label: 'Partners', href: '/partners' },
   { label: 'Advertise', href: '/#advertise' },
-  { label: 'News', href: '/#news' }
+  { label: 'News', href: 'https://news.cryptowaffle.fun', external: true }
 ];
 
 export const WATCH_LIVE = {

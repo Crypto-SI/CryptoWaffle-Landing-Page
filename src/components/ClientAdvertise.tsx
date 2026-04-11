@@ -7,6 +7,7 @@ import { AdvertiseIntro } from './advertise/AdvertiseIntro';
 import { BookUsSection } from './advertise/BookUsSection';
 import { OpportunitiesSection } from './advertise/OpportunitiesSection';
 import { ValueCards } from './advertise/ValueCards';
+import { VaultSection } from './advertise/VaultSection';
 
 const ClientAdvertise = () => {
   const [isH2Hovered, setIsH2Hovered] = useState(false);
@@ -15,6 +16,7 @@ const ClientAdvertise = () => {
   return (
     <section id="advertise" className="py-20 px-4 md:px-8 bg-dark-grey">
       <div className="container mx-auto max-w-6xl">
+        <VaultSection isHovered={isH2Hovered} onHoverChange={setIsH2Hovered} />
         <BookUsSection isHovered={isH2Hovered} onHoverChange={setIsH2Hovered} />
         <AdvertiseIntro isHovered={isH2Hovered} onHoverChange={setIsH2Hovered} />
         <ValueCards />
